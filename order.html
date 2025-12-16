@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalDesk - Checkout</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Checkout form styling */
+        .checkout-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .checkout-form input,
+        .checkout-form textarea {
+            padding: 10px;
+            font-size: 14px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .checkout-form textarea {
+            resize: none;
+        }
+
+        .checkout-form button {
+            margin-top: 10px;
+            align-self: center;
+        }
+
+        #order-success {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>DigitalDesk</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+</header>
+
+<main class="home">
+    <div class="home-box">
+
+        <!-- CHECKOUT FORM -->
+        <div id="checkout-section">
+            <h2>Checkout</h2>
+            <p class="tagline">Please enter your details to place the order</p>
+
+            <form id="checkout-form" class="checkout-form">
+                <input type="text" placeholder="Full Name" required>
+
+                <input type="email" placeholder="Email Address" required>
+
+                <input
+                    type="text"
+                    id="phone"
+                    placeholder="Phone Number"
+                    required
+                >
+
+                <textarea
+                    placeholder="Delivery Address"
+                    rows="3"
+                    required
+                ></textarea>
+
+                <button type="submit" class="primary-btn">
+                    Place Order
+                </button>
+            </form>
+        </div>
+
+        <div id="order-success" style="display:none;">
+            <h2>Order Placed Successfully 🎉</h2>
+            <p class="tagline">
+                Thank you for shopping with DigitalDesk!
+                Your order will be delivered soon.
+            </p>
+
+            <a href="products.html" class="primary-btn">
+                Continue Shopping
+            </a>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 DigitalDesk. All rights reserved.</p>
+</footer>
+
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+    const form = document.getElementById("checkout-form");
+    const successBox = document.getElementById("order-success");
+    const checkoutSection = document.getElementById("checkout-section");
+    const phoneInput = document.getElementById("phone");
+
+    phoneInput.addEventListener("input", function () {
+        if (!/^\d*$/.test(this.value)) {
+            alert("Phone number should contain digits only");
+            this.value = this.value.replace(/\D/g, "");
+        }
+    });
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        localStorage.removeItem("cart");
+
+        checkoutSection.style.display = "none";
+        successBox.style.display = "block";
+
+        if (typeof updateCartCount === "function") {
+            updateCartCount();
+        }
+    });
+</script>
+
+</body>
+</html>
