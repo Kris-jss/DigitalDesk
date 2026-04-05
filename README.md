@@ -34,6 +34,7 @@ This project was created to understand how real-world e-commerce websites handle
 - Users can update quantity or remove items  
 - Total price updates automatically based on cart changes  
 
+---
 
 ## 🎯 Learning Outcome
 
