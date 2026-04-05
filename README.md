@@ -26,4 +26,20 @@ This project was created to understand how real-world e-commerce websites handle
 
 ---
 
-## 📂 Project Structure
+## ⚙️ How It Works
+
+- Products are displayed on the homepage  
+- When a user clicks **"Add to Cart"**, the product is stored in the browser using `localStorage`  
+- The cart page dynamically loads and displays selected items  
+- Users can update quantity or remove items  
+- Total price updates automatically based on cart changes  
+
+
+## 🎯 Learning Outcome
+
+Through this project, I learned:
+- DOM manipulation using JavaScript  
+- Handling user interactions in real-time  
+- Using **localStorage** for data persistence  
+- Structuring a multi-page front-end project  
+- Basics of e-commerce workflow  
