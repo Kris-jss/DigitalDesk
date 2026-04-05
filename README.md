@@ -44,3 +44,10 @@ Through this project, I learned:
 - Using **localStorage** for data persistence  
 - Structuring a multi-page front-end project  
 - Basics of e-commerce workflow  
+
+---
+
+## 🙌 Author
+
+**Krrish**  
+- Beginner-level project focused on learning web development fundamentals.
